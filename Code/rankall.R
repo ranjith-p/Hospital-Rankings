@@ -3,9 +3,10 @@ rankall <- function(outcome, num = "best") {
   r <- read.csv("outcome-of-care-measures.csv")
   
   ## Changing the class because default class is "Character"
+  suppressWarnings({
   r[,17] <- as.numeric(r[,17])
   r[,23] <- as.numeric(r[,23])
-  r[,11] <- as.numeric(r[,11])
+  r[,11] <- as.numeric(r[,11])})
   
   ## Splitting by state 
   by_states <- split(r,r$State)
